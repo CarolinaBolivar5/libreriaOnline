@@ -12,40 +12,54 @@ public class Main {
         double total = 0;
         double descuentoa = 0;
         double descuentob = 0;
-        double precioLibroDigital=9000;
+        double precioLibroDigital = 9000;
 
-        switch (opcion){
+        switch (opcion) {
             case "1":
                 System.out.println("Ingrese cantidad de libros ");
                 cantidad = sc.nextDouble();
-                total = cantidad*precioLibroFisico;
+                total = cantidad * precioLibroFisico;
 
-                if (cantidad>5){
-                    descuentoa=0.20;
-                }else if (cantidad>=3){
-                    descuentob=0.10;
+                if (cantidad > 5) {
+                    descuentoa = 0.20;
+                } else if (cantidad >= 3) {
+                    descuentob = 0.10;
                 }
-                double totalFinalFisico = total*(1-(descuentoa+descuentob));
+                double totalFinalFisico = total * (1 - (descuentoa + descuentob));
                 System.out.println(totalFinalFisico);
-                System.out.println("Estas comprando "+cantidad+ " libros fisicos ");
-                System.out.println("El valor a pagar es: "+totalFinalFisico);
+                System.out.println("Estas comprando " + cantidad + " libros fisicos ");
+                System.out.println("El valor a pagar es: " + totalFinalFisico);
                 break;
 
             case "2":
                 System.out.println("Ingrese la categoria del libro ");
                 String categoria = sc.nextLine();
                 total = precioLibroDigital;
-                if (categoria.equals("Educativos")){
-                    descuentoa=0.15;
-                }else if (categoria.equals("recreativo")){
-                    descuentob=0;
+                if (categoria.equals("Educativos")) {
+                    descuentoa = 0.15;
+                } else if (categoria.equals("recreativo")) {
+                    descuentob = 0;
                 }
-                double totalFinalDigital = total *(1-descuentoa);
+                double totalFinalDigital = total * (1 - descuentoa);
                 System.out.println(totalFinalDigital);
-                System.out.println("Estas comprando libros de categoria "+categoria);
-                System.out.println("El valor a pagar es: "+totalFinalDigital);
+                System.out.println("Estas comprando libros de categoria " + categoria);
+                System.out.println("El valor a pagar es: " + totalFinalDigital);
+                break;
+
+            case "3":
+                System.out.println("Ingrese su edad: ");
+                double edad = 0;
+                edad = sc.nextDouble();
+                String suscripcion = "";
+                if (edad < 30) {
+                    suscripcion = "joven";
+                } else if (edad > 30) {
+                    suscripcion = "estandar";
                 }
+                System.out.println("La suscripción esta catalogada como "+suscripcion);
 
         }
 
+
     }
+}
