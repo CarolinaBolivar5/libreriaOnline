@@ -8,24 +8,44 @@ public class Main {
         System.out.println("3. suscripcion anual");
         String opcion = sc.nextLine();
         double cantidad = 0;
-        double precioLibro = 10000;
+        double precioLibroFisico = 10000;
         double total = 0;
         double descuentoa = 0;
         double descuentob = 0;
+        double precioLibroDigital=9000;
 
         switch (opcion){
             case "1":
                 System.out.println("Ingrese cantidad de libros ");
                 cantidad = sc.nextDouble();
-                total = cantidad*precioLibro;
+                total = cantidad*precioLibroFisico;
 
                 if (cantidad>5){
                     descuentoa=0.20;
                 }else if (cantidad>=3){
                     descuentob=0.10;
                 }
-                double totalFinal = total*(1-(descuentoa+descuentob));
-                System.out.println(totalFinal);
+                double totalFinalFisico = total*(1-(descuentoa+descuentob));
+                System.out.println(totalFinalFisico);
+                System.out.println("Estas comprando "+cantidad+ " libros fisicos ");
+                System.out.println("El valor a pagar es: "+totalFinalFisico);
+                break;
+
+            case "2":
+                System.out.println("Ingrese la categoria del libro ");
+                String categoria = sc.nextLine();
+                total = precioLibroDigital;
+                if (categoria.equals("Educativos")){
+                    descuentoa=0.15;
+                }else if (categoria.equals("recreativo")){
+                    descuentob=0;
+                }
+                double totalFinalDigital = total *(1-descuentoa);
+                System.out.println(totalFinalDigital);
+                System.out.println("Estas comprando libros de categoria "+categoria);
+                System.out.println("El valor a pagar es: "+totalFinalDigital);
+                }
+
         }
+
     }
-}
